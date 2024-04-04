@@ -1,5 +1,6 @@
 import cv2
 from pathlib import Path
+from modules.utilidades import calcular_tiempo_ejecucion
 # import numpy as np
 
 def file_exist(dir_file):
@@ -15,6 +16,7 @@ def show_marked_faces(faces, image, output_path):
                       2)
     cv2.imwrite(output_path, marked_image)
 
+@calcular_tiempo_ejecucion
 def faces_image(imagen, pesos, output_path):
     if(file_exist(imagen) and file_exist(pesos)):
         face_clasif = cv2.CascadeClassifier(pesos)
